@@ -11,7 +11,7 @@ NSE_PATH = '/usr/share/nmap/scripts/'
 
 def banner():
     os.system('clear')
-    bfile = './banners/nsebrowser.banner'
+    bfile = './banners/nse-cli.banner'
     with open(bfile,'r') as banner:
 	buf = banner.read()
 	if '=' in buf:
