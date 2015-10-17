@@ -89,6 +89,11 @@ def autoEnumerate(keys):
 	    tresponse = tkeys[port][5]
 	    matchScripts(target,service,version,app_proto)
 
+def updateScripts():
+    print "\033[1;34m[<>]\033[1;m Updating local NSE scripts..."
+    os.system('nmap --script-updatedb')
+    print "\033[1;34m[<>]\033[1;m Local NSE scripts updated."
+
 def nseCli():
     banner()
 
@@ -101,6 +106,7 @@ def nseCli():
     parser.add_argument('-p', '--port', help='target port to scan')
     parser.add_argument('-s', '--script', help='script to use by name or ID')
     parser.add_argument('-t', '--target', help='target address to scan')
+    parser.add_argument('-u', '--update', help='update NSE scripts', action="store_true")
 
     args = parser.parse_args()
     
@@ -111,8 +117,12 @@ def nseCli():
     port = args.port
     script = args.script
     target = args.target
+    update = args.update
 
-    if not find and not list and not script and not target:
+    if update:
+	updateScripts()
+	
+    if not update and not find and not list and not script and not target:
 	parser.print_help()
 	sys.exit()
 
