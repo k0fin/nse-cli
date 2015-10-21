@@ -12,7 +12,7 @@
    *os
    *glob
 
- -The following 3rd party dependency is implemented in nse-cliL
+ -The following 3rd party dependency is implemented in nse-cli:
    *python-nmap
 
 ## Usage
