@@ -125,7 +125,9 @@ def nseCli():
 	updateScripts()
 	
     if not update and not find and not list and not script and not target:
+	print '\033[1;34m=\033[1;m' * 80
 	parser.print_help()
+	print '\033[1;34m=\033[1;m' * 80
 	sys.exit()
 
     if list:
@@ -161,8 +163,6 @@ def nseCli():
 		print "    \033[1;34m-\033[1;mPath: {}".format(path)
 		if info:
 		    infokey = index[i]['info'].strip()
-#		    if '. ' in infokey:
-#			infokey = infokey.replace('. ','. \n\n')
 		    print "\n \033[1;34m_____________________\033[1;m"
 		    print "\033[1;34m|\033[1;m Script Information  \033[1;34m|\033[1;m\n{}".format('\033[1;34m=\033[1;m' * 80)
 		    print '\033[1;34m-> \033[1;m' + infokey
