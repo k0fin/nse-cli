@@ -104,6 +104,7 @@ def nseCli():
     parser.add_argument('-i', '--info', help='look up info for script by name or ID', action="store_true")
     parser.add_argument('-l', '--list', help='list all available nse scripts', action="store_true")
     parser.add_argument('-p', '--port', help='target port to scan')
+    parser.add_argument('-r', '--range', help='list <r> amount of scripts')
     parser.add_argument('-s', '--script', help='script to use by name or ID')
     parser.add_argument('-t', '--target', help='target address to scan')
     parser.add_argument('-u', '--update', help='update NSE scripts', action="store_true")
@@ -115,6 +116,7 @@ def nseCli():
     info = args.info
     list = args.list
     port = args.port
+    range = args.range
     script = args.script
     target = args.target
     update = args.update
@@ -133,6 +135,9 @@ def nseCli():
 	print '\033[1;34m=\033[1;m' * 80
 	for f in files:
 	    print '\033[1;34m[\033[1;m {0:3} \033[1;34m]\033[1;m - {1:10}'.format(f,files[f]['name'])
+	    if range:
+		if int(range) == int(f):
+		    break
 	print '\033[1;34m=\033[1;m' * 80
 
     if find:
